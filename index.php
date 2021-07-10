@@ -32,9 +32,6 @@ $match = new Match($Hungary, $Portugal);
 
 echo $match->playGame();
 
-echo $Hungary->getName();
-echo $Hungary->getPower();
-
 
 
 
