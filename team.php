@@ -4,6 +4,7 @@ class Team {
     private $name;
     private $power;
     private $goal;
+    private $points;
 
     public function __construct($name, $power) {
         $this->name = $name;
@@ -16,6 +17,14 @@ class Team {
 
     public function getPower() {
         return $this-> power;
+    }
+
+    public function getPoints() {
+        return $this->points;
+    }
+
+    public function setPoints($points) {
+        $this->points += $points; 
     }
 
     public function scoreGoal() {

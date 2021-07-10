@@ -1,6 +1,5 @@
 <?php 
 class Match {
-    private $outcome;
     private $team1;
     private $team2;
     private $team1Score = 0;
@@ -24,13 +23,16 @@ class Match {
       } else {
         $this->chanceToWin() ? $this->team2Score++ : null;
       }
-      
-      file_put_contents('testfile.txt', $this->team1->getName() . ' ' . $this->team1Score . ':' . $this->team2Score . ' ' . $this->team2->getName() . "\n", FILE_APPEND);
+
+      $this->team1->setPoints($this->team1Score);
+      $this->team2->setPoints($this->team2Score);
+
+      file_put_contents('matches.txt', $this->team1->getName() . ' ' . $this->team1Score . ':' . $this->team2Score . ' ' . $this->team2->getName() . "\n", FILE_APPEND);
 
       if ($this->team1Score > $this->team2Score) {
-          return $this->team1->getName();
+          return array($this->team1->getName(), $this->team1Score);
       } else if ($this->team2Score > $this->team1Score) {
-        return $this->team2->getName();
+        return array($this->team2->getName(), $this->team2Score);
       } else {
           return 'draw';
       }

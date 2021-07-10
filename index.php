@@ -1,6 +1,7 @@
 <?php
-include 'team.php';
-include 'match.php';
+require 'team.php';
+require 'match.php';
+require 'group.php';
 
 $Italy = new Team('Italy', 1642);
 $Wales = new Team('Wales', 1570);
@@ -27,11 +28,33 @@ $Germany = new Team('Germany', 1609);
 $Portugal = new Team('Portugal', 1666);
 $Hungary = new Team('Hungary', 1469);
 
-$match = new Match($Hungary, $Portugal);
+$groupA = new Group('A', $Italy, $Wales, $Switzerland, $Turkey);
+$groupB = new Group('B', $Belgium, $Denmark, $Finland, $Russia);
+$groupC = new Group('C', $Netherlands, $Austria, $Ukraine, $North_Macedonia);
+$groupD = new Group('D', $England, $Croatia, $Czech_Republic, $Scotland);
+$groupE = new Group('E', $Sweden, $Spain, $Slovakia, $Poland);
+$groupF = new Group('F', $France, $Germany, $Portugal, $Hungary);
+
+$groupA->playGroupMatches();
+$groupB->playGroupMatches();
+$groupC->playGroupMatches();
+$groupD->playGroupMatches();
+$groupE->playGroupMatches();
+$groupF->playGroupMatches();
+
+$groupA->forwarders();
+$groupB->forwarders();
+$groupC->forwarders();
+$groupD->forwarders();
+$groupE->forwarders();
+$groupF->forwarders();
 
 
-echo $match->playGame();
 
+echo $Italy->getPoints()."\r\n";
+echo $Wales->getPoints()."\r\n";
+echo $Switzerland->getPoints()."\r\n";
+echo $Turkey->getPoints()."\r\n";
 
 
 
