@@ -11,6 +11,7 @@ class Roundof16 {
     }
 
     public function getTeams() {
+        shuffle($this->teams);
         echo '<pre>'; print_r($this->teams); echo '</pre>';
     }
 
