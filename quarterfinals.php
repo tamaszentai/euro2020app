@@ -9,7 +9,7 @@ class Quarterfinals {
 
     public function playQuarterFinals() {
         shuffle($this->teams);
-        file_put_contents('matches.txt', '-------------- QUARTER FINALS ---------------'. "\n", FILE_APPEND);
+        file_put_contents('matches.txt', '-------------- QUARTER FINALS MATCHES ---------------'. "\n", FILE_APPEND);
         for($i = 0; $i <= 3; $i++) {
           $match[$i] = new Match($this->teams[$i], $this->teams[7-$i]);
           array_push($this->forwarders, $match[$i]->playGame());

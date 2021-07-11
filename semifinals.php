@@ -9,7 +9,7 @@ class Semifinals {
 
     public function playSemiFinals() {
         shuffle($this->teams);
-        file_put_contents('matches.txt', '-------------- SEMI FINALS ---------------'. "\n", FILE_APPEND);
+        file_put_contents('matches.txt', '-------------- SEMI FINALS MATCHES ---------------'. "\n", FILE_APPEND);
         for($i = 0; $i <= 1; $i++) {
           $match[$i] = new Match($this->teams[$i], $this->teams[3-$i]);
           array_push($this->forwarders, $match[$i]->playGame());

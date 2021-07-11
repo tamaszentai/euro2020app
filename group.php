@@ -48,10 +48,6 @@ class Group {
         file_put_contents('matches.txt', '2. ' . $this->second->getName() . ' with ' . $this->second->getPoints() . ' points' ."\n", FILE_APPEND);
         $this->third = $forwarders[2];
         file_put_contents('matches.txt', '3. ' . $this->third->getName() . ' with ' . $this->third->getPoints() . ' points' ."\n", FILE_APPEND);
-
-        // $third = array_slice($teams, 2, 1);
-        // echo '<pre>'; print_r($firstTwo); echo '</pre>';
-        // echo '<pre>'; print_r($third); echo '</pre>';
     }
 
     public function getFirst() {
