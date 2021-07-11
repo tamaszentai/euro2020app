@@ -39,6 +39,5 @@ class Thirdplacements {
     public function getThirdFourth() {
         return $this->thirdFourth;
     }
-
 }
 ?>

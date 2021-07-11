@@ -65,12 +65,5 @@ class Group {
     public function getThird() {
         return $this->third;
     }
-
-
-
-
-    
-    
-
 }
 ?>

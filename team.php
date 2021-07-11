@@ -32,22 +32,4 @@ class Team {
         return $this->goal;
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ?>

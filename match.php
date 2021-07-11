@@ -27,8 +27,6 @@ class Match {
       $this->team1->setPoints($this->team1Score);
       $this->team2->setPoints($this->team2Score);
 
-      
-
       if ($this->team1Score > $this->team2Score) {
         file_put_contents('matches.txt', $this->team1->getName() . ' ' . $this->team1Score . ':' . $this->team2Score . ' ' . $this->team2->getName() . "\n", FILE_APPEND);
           return $this->team1;
@@ -36,14 +34,8 @@ class Match {
         file_put_contents('matches.txt', $this->team1->getName() . ' ' . $this->team1Score . ':' . $this->team2Score . ' ' . $this->team2->getName() . "\n", FILE_APPEND);
         return $this->team2;
       } else {
-          $this->playGame();
+          return $this->playGame();
       }
     }
-
-    
-
 } 
-
-
-
 ?>
