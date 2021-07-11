@@ -19,6 +19,4 @@ class _Final {
         echo $this->winner->getName()."\n";
     }
 }
-
-
 ?>
