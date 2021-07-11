@@ -5,6 +5,7 @@ require 'group.php';
 require 'thirdplacements.php';
 require 'roundof16.php';
 require 'quarterfinals.php';
+require 'semifinals.php';
 
 $Italy = new Team('Italy', 1642);
 $Wales = new Team('Wales', 1570);
@@ -60,5 +61,9 @@ $roundof16->play16();
 
 $quarterfinals = new Quarterfinals($roundof16->getForwarders());
 $quarterfinals->playQuarterFinals();
+
+$semifinals = new Semifinals($quarterfinals->getForwarders());
+$semifinals->playSemiFinals();
+$semifinals->getForwarders();
 
 ?>
