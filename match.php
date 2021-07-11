@@ -12,7 +12,7 @@ class Match {
         $this->team2Score = $team2->scoreGoal();
     }
 
-    public function chanceToWin() {
+    private function chanceToWin() {
         $helper = mt_rand(1,10) / 10;
         return $helper < 0.5 ? true : false;
     }
@@ -30,9 +30,9 @@ class Match {
       file_put_contents('matches.txt', $this->team1->getName() . ' ' . $this->team1Score . ':' . $this->team2Score . ' ' . $this->team2->getName() . "\n", FILE_APPEND);
 
       if ($this->team1Score > $this->team2Score) {
-          return array($this->team1->getName(), $this->team1Score);
+          return $this->team1;
       } else if ($this->team2Score > $this->team1Score) {
-        return array($this->team2->getName(), $this->team2Score);
+        return $this->team2;
       } else {
           return 'draw';
       }

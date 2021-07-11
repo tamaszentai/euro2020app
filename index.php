@@ -2,6 +2,8 @@
 require 'team.php';
 require 'match.php';
 require 'group.php';
+require 'thirdplacements.php';
+require 'roundof16.php';
 
 $Italy = new Team('Italy', 1642);
 $Wales = new Team('Wales', 1570);
@@ -49,12 +51,17 @@ $groupD->forwarders();
 $groupE->forwarders();
 $groupF->forwarders();
 
+$thirdplacements = new Thirdplacements($groupA->getThird(), $groupB->getThird(), $groupC->getThird(), $groupD->getThird(), $groupE->getThird(), $groupF->getThird());
+$thirdplacements->thirdForwarders();
+
+$roundof16 = new Roundof16($groupA->getFirst(), $groupA->getSecond(), $groupB->getFirst(), $groupB->getSecond(), $groupC->getFirst(), $groupC->getSecond(), $groupD->getFirst(), $groupD->getSecond(), $groupE->getFirst(), $groupE->getSecond(), $groupF->getFirst(), $groupF->getSecond(), $thirdplacements->getThirdFirst(), $thirdplacements->getThirdSecond(), $thirdplacements->getThirdThird(), $thirdplacements->getThirdFourth());
+$roundof16->getTeams();
 
 
-echo $Italy->getPoints()."\r\n";
-echo $Wales->getPoints()."\r\n";
-echo $Switzerland->getPoints()."\r\n";
-echo $Turkey->getPoints()."\r\n";
+// echo $Italy->getPoints()."\r\n";
+// echo $Wales->getPoints()."\r\n";
+// echo $Switzerland->getPoints()."\r\n";
+// echo $Turkey->getPoints()."\r\n";
 
 
 

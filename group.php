@@ -5,6 +5,9 @@ class Group {
     private $team2;
     private $team3;
     private $team4;
+    private $first;
+    private $second;
+    private $third;
 
     public function __construct($name, $team1, $team2, $team3, $team4) {
         $this->name = $name;
@@ -30,18 +33,39 @@ class Group {
         $match6->playGame();
     }
 
-    public function cmp($object1, $object2) {
+    private function cmp($object1, $object2) {
         return $object1->getPoints() < $object2->getPoints();
     }
 
     public function forwarders() {
+        file_put_contents('matches.txt', '-------------- '. 'GROUP ' . $this->name .' FORWARDERS: ---------------'. "\n", FILE_APPEND);
         $teams = array($this->team1 , $this->team2, $this->team3, $this->team4);
         usort($teams, array($this, "cmp"));
-        $firstTwo = array_slice($teams, 0, 2);
-        $third = array_slice($teams, 2, 1);
-        echo '<pre>'; print_r($firstTwo); echo '</pre>';
-        echo '<pre>'; print_r($third); echo '</pre>';
+        $forwarders = array_slice($teams, 0, 3);
+        $this->first = $forwarders[0];
+        file_put_contents('matches.txt', '1. ' . $this->first->getName() . ' with ' . $this->first->getPoints() . ' points' ."\n", FILE_APPEND);
+        $this->second = $forwarders[1];
+        file_put_contents('matches.txt', '2. ' . $this->second->getName() . ' with ' . $this->second->getPoints() . ' points' ."\n", FILE_APPEND);
+        $this->third = $forwarders[2];
+        file_put_contents('matches.txt', '3. ' . $this->third->getName() . ' with ' . $this->third->getPoints() . ' points' ."\n", FILE_APPEND);
+
+        // $third = array_slice($teams, 2, 1);
+        // echo '<pre>'; print_r($firstTwo); echo '</pre>';
+        // echo '<pre>'; print_r($third); echo '</pre>';
     }
+
+    public function getFirst() {
+        return $this->first;
+    }
+
+    public function getSecond() {
+        return $this->second;
+    }
+
+    public function getThird() {
+        return $this->third;
+    }
+
 
 
 
@@ -49,5 +73,4 @@ class Group {
     
 
 }
-
 ?>
