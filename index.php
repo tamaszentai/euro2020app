@@ -1,4 +1,7 @@
 <?php
+header("Access-Control-Allow-Origin: *");
+header('Content-type: application/json');
+
 require 'team.php';
 require 'match.php';
 require 'group.php';
@@ -69,4 +72,5 @@ $semifinals->playSemiFinals();
 $final = new _Final($semifinals->getForwarders());
 $final->playFinal();
 $final->getWinner();
+
 ?>
