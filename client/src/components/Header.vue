@@ -1,6 +1,6 @@
 <template>
     <div>
-
+        <img src="../assets/logo.png">
     </div>
 </template>
 
@@ -10,6 +10,10 @@
     }
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
+img {
+    display: block;
+    width: 10%;
+}
 
 </style>
